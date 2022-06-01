@@ -57,6 +57,16 @@ class ProfileHeaderView: UIView {
         
         return button
     }()
+    
+    private lazy var newButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Кнопка", for: .normal)
+        button.clipsToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.systemCyan
+        
+        return button
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,12 +79,19 @@ class ProfileHeaderView: UIView {
     }
 
     private func drawSelf() {
+        frame.origin.x = safeAreaInsets.left
+        frame.origin.y = safeAreaInsets.top
+        frame.size.width = bounds.width - safeAreaInsets.left - safeAreaInsets.right
+        frame.size.height = 220
+        
         addSubview(avatarImageView)
         addSubview(fullNameLabel)
         addSubview(statusLabel)
         addSubview(setStatusButton)
+        addSubview(newButton)
 
         NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalToConstant: 220),
             avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             avatarImageView.widthAnchor.constraint(equalToConstant: 150),
@@ -91,7 +108,12 @@ class ProfileHeaderView: UIView {
             
             statusLabel.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -34),
             statusLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
-            statusLabel.trailingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor)
+            statusLabel.trailingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor),
+            
+            newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            newButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            newButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            newButton.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
