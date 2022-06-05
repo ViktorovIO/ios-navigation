@@ -30,7 +30,8 @@ class PostViewController: UIViewController {
         navigationItem.rightBarButtonItem = barButtonItem
     }
     
-    @objc func showPostInfo() {
+    @objc
+    func showPostInfo() {
         print("test1")
         let infoVC = InfoViewController(post: self.post, nibName: nil, bundle: nil)
         infoVC.modalPresentationStyle = .formSheet
