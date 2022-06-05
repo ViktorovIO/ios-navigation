@@ -19,6 +19,7 @@
 		5C7D1DA32847FAB600B71858 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA22847FAB600B71858 /* PostViewController.swift */; };
 		5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */; };
 		5C7D1DA82847FBCD00B71858 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA72847FBCD00B71858 /* ProfileHeaderView.swift */; };
+		5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA9284802F300B71858 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5C7D1DA22847FAB600B71858 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5C7D1DA72847FBCD00B71858 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		5C7D1DA9284802F300B71858 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */,
 				5C7D1DA72847FBCD00B71858 /* ProfileHeaderView.swift */,
+				5C7D1DA9284802F300B71858 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				5C7D1DA12847FA9900B71858 /* Post.swift in Sources */,
 				5C7D1D8A2847F9A500B71858 /* SceneDelegate.swift in Sources */,
 				5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */,
+				5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */,
 				5C7D1D9F2847FA7100B71858 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
