@@ -23,7 +23,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = self.post.title
+        title = self.post.author
         self.view.backgroundColor = .gray
         
         let postButton = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
@@ -35,7 +35,7 @@ class InfoViewController: UIViewController {
     }
     
     @objc func showPostMessageAlert() {
-        let alertVC = UIAlertController(title: self.post.title, message: self.post.message, preferredStyle: .alert)
+        let alertVC = UIAlertController(title: self.post.author, message: self.post.description, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
             print("OK!")

@@ -19,7 +19,13 @@ class FeedViewController: UIViewController {
     
     @objc
     func showPost() {
-        let post = Post(title: "Запись #1", message: "Тестовое сообщение к записи")
+        let post = Post(
+            author: "Igorilla",
+            description: "Hello, world!",
+            image: "avatar",
+            likes: 100500,
+            views: 1001
+        )
         let postVC = PostViewController(post: post, nibName: nil, bundle: nil)
         
         navigationController?.pushViewController(postVC, animated: true)

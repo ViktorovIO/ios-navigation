@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0CD3F128844245001040AA /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0CD3F028844245001040AA /* ProfileTableHederView.swift */; };
+		5C0CD3F3288442FD001040AA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0CD3F2288442FD001040AA /* PostTableViewCell.swift */; };
 		5C7D1D882847F9A500B71858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1D872847F9A500B71858 /* AppDelegate.swift */; };
 		5C7D1D8A2847F9A500B71858 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1D892847F9A500B71858 /* SceneDelegate.swift */; };
 		5C7D1D8C2847F9A500B71858 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1D8B2847F9A500B71858 /* ViewController.swift */; };
@@ -18,11 +20,12 @@
 		5C7D1DA12847FA9900B71858 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA02847FA9900B71858 /* Post.swift */; };
 		5C7D1DA32847FAB600B71858 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA22847FAB600B71858 /* PostViewController.swift */; };
 		5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */; };
-		5C7D1DA82847FBCD00B71858 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA72847FBCD00B71858 /* ProfileHeaderView.swift */; };
 		5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA9284802F300B71858 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C0CD3F028844245001040AA /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
+		5C0CD3F2288442FD001040AA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		5C7D1D842847F9A500B71858 /* ios-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7D1D872847F9A500B71858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C7D1D892847F9A500B71858 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		5C7D1DA02847FA9900B71858 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5C7D1DA22847FAB600B71858 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		5C7D1DA72847FBCD00B71858 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		5C7D1DA9284802F300B71858 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				5C7D1D9E2847FA7100B71858 /* InfoViewController.swift */,
 				5C7D1DA02847FA9900B71858 /* Post.swift */,
 				5C7D1DA22847FAB600B71858 /* PostViewController.swift */,
+				5C0CD3F2288442FD001040AA /* PostTableViewCell.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -98,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */,
-				5C7D1DA72847FBCD00B71858 /* ProfileHeaderView.swift */,
 				5C7D1DA9284802F300B71858 /* LogInViewController.swift */,
+				5C0CD3F028844245001040AA /* ProfileTableHederView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -176,15 +179,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7D1D8C2847F9A500B71858 /* ViewController.swift in Sources */,
+				5C0CD3F128844245001040AA /* ProfileTableHederView.swift in Sources */,
 				5C7D1D882847F9A500B71858 /* AppDelegate.swift in Sources */,
 				5C7D1DA32847FAB600B71858 /* PostViewController.swift in Sources */,
 				5C7D1D9C2847FA3D00B71858 /* FeedViewController.swift in Sources */,
-				5C7D1DA82847FBCD00B71858 /* ProfileHeaderView.swift in Sources */,
 				5C7D1DA12847FA9900B71858 /* Post.swift in Sources */,
 				5C7D1D8A2847F9A500B71858 /* SceneDelegate.swift in Sources */,
 				5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */,
 				5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */,
 				5C7D1D9F2847FA7100B71858 /* InfoViewController.swift in Sources */,
+				5C0CD3F3288442FD001040AA /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
