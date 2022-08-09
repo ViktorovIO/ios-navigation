@@ -15,26 +15,24 @@ class ProfileViewController: UIViewController {
         title = "Profile"
         view.backgroundColor = .lightGray
 
-        // ProfileHeaderView
-        let profileHeaderView = ProfileHeaderView(frame: .zero)
-        profileHeaderView.backgroundColor = .white
-        view.addSubview(profileHeaderView)
+        self.addProfileHeaderSubview()
 
-        let barButtonItem = UIBarButtonItem(title: "Запись", style: .plain, target: self, action: #selector(showPostInfo))
-        navigationItem.rightBarButtonItem = barButtonItem
-
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.backgroundColor = .white
-        navigationController?.navigationBar.barTintColor = UIColor.white
-    }
-    
-    @objc func showPostInfo() {
-        
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
         view.subviews.first?.frame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: super.view.frame.height)
+    }
+    
+    private func addProfileHeaderSubview() {
+        let profileHeaderView = ProfileHeaderView(frame: .zero)
+        
+        profileHeaderView.backgroundColor = .white
+        view.addSubview(profileHeaderView)
     }
 }
