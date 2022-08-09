@@ -9,11 +9,6 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
-    struct ViewModel {
-        let author, description, image: String
-        let likes, views: Int
-    }
-
     private lazy var backView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
@@ -21,6 +16,7 @@ class PostTableViewCell: UITableViewCell {
             .layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner
         ]
         view.translatesAutoresizingMaskIntoConstraints = false
+        
         return view
     }()
 
@@ -29,6 +25,7 @@ class PostTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         return stackView
     }()
 
@@ -37,6 +34,7 @@ class PostTableViewCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         return stackView
     }()
 
@@ -49,6 +47,7 @@ class PostTableViewCell: UITableViewCell {
         label.textAlignment = NSTextAlignment.left
         label.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
 
@@ -58,6 +57,7 @@ class PostTableViewCell: UITableViewCell {
         label.font = UIFont(name: "System", size: 14)
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
 
@@ -77,6 +77,7 @@ class PostTableViewCell: UITableViewCell {
         label.font = UIFont(name: "System", size: 16)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
 
@@ -86,6 +87,7 @@ class PostTableViewCell: UITableViewCell {
         label.font = UIFont(name: "System", size: 16)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
 
