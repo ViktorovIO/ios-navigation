@@ -76,47 +76,15 @@ class ProfileViewController: UIViewController {
 
         self.setupViewTableView()
         self.setupNavigationBar()
-        self.addPosts()
+        
+        let mockedPostsList = MockedPostsList()
+        self.posts = mockedPostsList.getPosts()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
         view.subviews.first?.frame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: super.view.frame.height)
-    }
-    
-    private func addPosts() {
-        self.posts.append(.init(
-            author: "Igorilla",
-            description: "Hello, world!",
-            image: "dev",
-            likes: 100500,
-            views: 100501
-        ))
-        
-        self.posts.append(.init(
-            author: "Capybara-master",
-            description: "Capy - is the most friendly pets))",
-            image: "capybara",
-            likes: 356,
-            views: 356
-        ))
-        
-        self.posts.append(.init(
-            author: "Apple Music",
-            description: "Listen music today!",
-            image: "music",
-            likes: 79,
-            views: 673
-        ))
-        
-        self.posts.append(.init(
-            author: "Whats news?",
-            description: "Are you reading newspaper?",
-            image: "newspaper",
-            likes: 14,
-            views: 909
-        ))
     }
 }
 
@@ -136,7 +104,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
         
         let article = self.posts[indexPath.row]
-        let viewModel = PostTableViewCell.ViewModel(
+        let viewModel = ViewModel(
             author: article.author,
             description: article.description,
             image: article.image,
@@ -151,9 +119,5 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return self.profileHeaderView
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return  300
     }
 }

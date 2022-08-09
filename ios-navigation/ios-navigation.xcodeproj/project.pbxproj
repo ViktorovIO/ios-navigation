@@ -21,6 +21,7 @@
 		5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */; };
 		5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA9284802F300B71858 /* LogInViewController.swift */; };
 		5CA7CA8728A2AF160013249C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8628A2AF160013249C /* ViewModel.swift */; };
+		5CA7CA8928A2B2760013249C /* MockedPostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8828A2B2760013249C /* MockedPostsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5C7D1DA9284802F300B71858 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5CA7CA8628A2AF160013249C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5CA7CA8828A2B2760013249C /* MockedPostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPostsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				5C7D1DA22847FAB600B71858 /* PostViewController.swift */,
 				5C0CD3F2288442FD001040AA /* PostTableViewCell.swift */,
 				5CA7CA8628A2AF160013249C /* ViewModel.swift */,
+				5CA7CA8828A2B2760013249C /* MockedPostsList.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				5C7D1DA32847FAB600B71858 /* PostViewController.swift in Sources */,
 				5C7D1D9C2847FA3D00B71858 /* FeedViewController.swift in Sources */,
 				5C7D1DA12847FA9900B71858 /* Post.swift in Sources */,
+				5CA7CA8928A2B2760013249C /* MockedPostsList.swift in Sources */,
 				5C7D1D8A2847F9A500B71858 /* SceneDelegate.swift in Sources */,
 				5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */,
 				5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */,
