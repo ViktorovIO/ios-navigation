@@ -22,6 +22,7 @@
 		5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA9284802F300B71858 /* LogInViewController.swift */; };
 		5CA7CA8728A2AF160013249C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8628A2AF160013249C /* ViewModel.swift */; };
 		5CA7CA8928A2B2760013249C /* MockedPostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8828A2B2760013249C /* MockedPostsList.swift */; };
+		5CA7CA8C28A2B7900013249C /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8B28A2B7900013249C /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5C7D1DA9284802F300B71858 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5CA7CA8628A2AF160013249C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5CA7CA8828A2B2760013249C /* MockedPostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPostsList.swift; sourceTree = "<group>"; };
+		5CA7CA8B28A2B7900013249C /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +105,20 @@
 		5C7D1DA42847FAD100B71858 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5CA7CA8A28A2B7610013249C /* Photo */,
 				5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */,
 				5C7D1DA9284802F300B71858 /* LogInViewController.swift */,
 				5C0CD3F028844245001040AA /* ProfileTableHederView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		5CA7CA8A28A2B7610013249C /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				5CA7CA8B28A2B7900013249C /* PhotosTableViewCell.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 				5C7D1DA12847FA9900B71858 /* Post.swift in Sources */,
 				5CA7CA8928A2B2760013249C /* MockedPostsList.swift in Sources */,
 				5C7D1D8A2847F9A500B71858 /* SceneDelegate.swift in Sources */,
+				5CA7CA8C28A2B7900013249C /* PhotosTableViewCell.swift in Sources */,
 				5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */,
 				5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */,
 				5CA7CA8728A2AF160013249C /* ViewModel.swift in Sources */,
