@@ -49,51 +49,19 @@ class PhotosTableViewCell: UITableViewCell {
     }()
 
     private lazy var firstPhotoView: UIImageView = {
-        let image = UIImage(named: "1")
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 6
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
-        return imageView
+        return self.makeImageByName(name: "1")
     }()
 
     private lazy var secondPhotoView: UIImageView = {
-        let image = UIImage(named: "2")
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 6
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
-        return imageView
+        return self.makeImageByName(name: "2")
     }()
 
     private lazy var thirdPhotoView: UIImageView = {
-        let image = UIImage(named: "3")
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 6
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
-        return imageView
+        return self.makeImageByName(name: "3")
     }()
 
     private lazy var fourthPhotoView: UIImageView = {
-        let image = UIImage(named: "4")
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 6
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
-        return imageView
+        return self.makeImageByName(name: "4")
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -103,6 +71,18 @@ class PhotosTableViewCell: UITableViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func makeImageByName(name: String) -> UIImageView {
+        let image = UIImage(named: name)
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 6
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        return imageView
     }
 
     private func setupView() {
