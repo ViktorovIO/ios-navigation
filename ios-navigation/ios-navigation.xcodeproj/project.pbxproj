@@ -22,6 +22,10 @@
 		5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA9284802F300B71858 /* LogInViewController.swift */; };
 		5CA7CA8728A2AF160013249C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8628A2AF160013249C /* ViewModel.swift */; };
 		5CA7CA8928A2B2760013249C /* MockedPostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8828A2B2760013249C /* MockedPostsList.swift */; };
+		5CA7CA8C28A2B7900013249C /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CA8B28A2B7900013249C /* PhotosTableViewCell.swift */; };
+		5CB2A0F728BD19CE00CE1618 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB2A0F628BD19CE00CE1618 /* PhotosCollectionViewCell.swift */; };
+		5CB2A0F928BD1B3500CE1618 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB2A0F828BD1B3500CE1618 /* PhotosViewController.swift */; };
+		5CB2A0FB28BD1B9D00CE1618 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB2A0FA28BD1B9D00CE1618 /* PhotosViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		5C7D1DA9284802F300B71858 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5CA7CA8628A2AF160013249C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5CA7CA8828A2B2760013249C /* MockedPostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPostsList.swift; sourceTree = "<group>"; };
+		5CA7CA8B28A2B7900013249C /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		5CB2A0F628BD19CE00CE1618 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		5CB2A0F828BD1B3500CE1618 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		5CB2A0FA28BD1B9D00CE1618 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +111,23 @@
 		5C7D1DA42847FAD100B71858 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5CA7CA8A28A2B7610013249C /* Photo */,
 				5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */,
 				5C7D1DA9284802F300B71858 /* LogInViewController.swift */,
 				5C0CD3F028844245001040AA /* ProfileTableHederView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		5CA7CA8A28A2B7610013249C /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				5CA7CA8B28A2B7900013249C /* PhotosTableViewCell.swift */,
+				5CB2A0F628BD19CE00CE1618 /* PhotosCollectionViewCell.swift */,
+				5CB2A0F828BD1B3500CE1618 /* PhotosViewController.swift */,
+				5CB2A0FA28BD1B9D00CE1618 /* PhotosViewModel.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,15 +201,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7D1D8C2847F9A500B71858 /* ViewController.swift in Sources */,
+				5CB2A0F928BD1B3500CE1618 /* PhotosViewController.swift in Sources */,
 				5C0CD3F128844245001040AA /* ProfileTableHederView.swift in Sources */,
 				5C7D1D882847F9A500B71858 /* AppDelegate.swift in Sources */,
 				5C7D1DA32847FAB600B71858 /* PostViewController.swift in Sources */,
 				5C7D1D9C2847FA3D00B71858 /* FeedViewController.swift in Sources */,
 				5C7D1DA12847FA9900B71858 /* Post.swift in Sources */,
+				5CB2A0FB28BD1B9D00CE1618 /* PhotosViewModel.swift in Sources */,
 				5CA7CA8928A2B2760013249C /* MockedPostsList.swift in Sources */,
 				5C7D1D8A2847F9A500B71858 /* SceneDelegate.swift in Sources */,
+				5CA7CA8C28A2B7900013249C /* PhotosTableViewCell.swift in Sources */,
 				5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */,
 				5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */,
+				5CB2A0F728BD19CE00CE1618 /* PhotosCollectionViewCell.swift in Sources */,
 				5CA7CA8728A2AF160013249C /* ViewModel.swift in Sources */,
 				5C7D1D9F2847FA7100B71858 /* InfoViewController.swift in Sources */,
 				5C0CD3F3288442FD001040AA /* PostTableViewCell.swift in Sources */,
