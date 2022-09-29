@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
 
@@ -32,6 +33,7 @@ class ProfileViewController: UIViewController {
         tableView.layer.borderColor = UIColor.gray.cgColor
         tableView.layer.borderWidth = 0.5
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         return tableView
     }()
     
@@ -50,6 +52,7 @@ class ProfileViewController: UIViewController {
         navBarAppearance.backgroundColor = UIColor.white
         navBarAppearance.shadowImage = nil
         navBarAppearance.shadowColor = nil
+        
         self.navigationController?.navigationBar.standardAppearance = navBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
     }
@@ -73,7 +76,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Profile"
-        view.backgroundColor = .white
+        
+        #if DEBUG
+            view.backgroundColor = .systemGray
+        #else
+            view.backgroundColor = .white
+        #endif
 
         self.setupViewTableView()
         self.setupNavigationBar()

@@ -5,6 +5,8 @@
 //  Created by Игорь Викторов on 09.08.2022.
 //
 
+import StorageService
+
 class MockedPostsList {
     private var posts: [Post] = []
     
