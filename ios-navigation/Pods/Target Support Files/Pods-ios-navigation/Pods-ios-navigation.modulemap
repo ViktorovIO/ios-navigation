@@ -1,6 +1,0 @@
-framework module Pods_ios_navigation {
-  umbrella header "Pods-ios-navigation-umbrella.h"
-
-  export *
-  module * { export * }
-}
