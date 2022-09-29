@@ -128,32 +128,6 @@ class ProfileHeaderView: UIView {
             make.left.equalTo(fullNameLabel.snp.left)
             make.bottom.equalTo(statusTextField.snp.top).offset(-16)
         }
-//        NSLayoutConstraint.activate([
-//            self.heightAnchor.constraint(equalToConstant: 220),
-//            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-//            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
-//            avatarImageView.heightAnchor.constraint(equalToConstant: 150),
-//
-//            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
-//            fullNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 182),
-//            fullNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//
-//            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
-//            setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-//            setStatusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//
-//            statusLabel.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -16),
-//            statusLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
-//            statusLabel.trailingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor),
-//
-//            statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -16),
-//            statusTextField.leadingAnchor.constraint(equalTo: statusLabel.leadingAnchor),
-//            statusTextField.trailingAnchor.constraint(equalTo: statusLabel.trailingAnchor),
-//            statusTextField.heightAnchor.constraint(equalToConstant: 34)
-//        ])
     }
     
     @objc private func setStatusButtonPressed() {
