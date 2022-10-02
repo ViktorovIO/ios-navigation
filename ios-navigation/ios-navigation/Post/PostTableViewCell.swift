@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
 
@@ -112,9 +111,7 @@ class PostTableViewCell: UITableViewCell {
     
     func setup(with viewModel: ViewModel) {
         self.authorLabel.text = viewModel.author
-        ImageProcessor().processImage(sourceImage: UIImage(named: viewModel.image)!, filter: .chrome) { image in
-            self.imageNewView.image = image
-        }
+        self.imageNewView.image = UIImage(named: viewModel.image)
         self.descriptionLabel.text = viewModel.description
         self.viewsLabel.text = "Views: " + String(viewModel.views)
         self.likesLabel.text = "Likes: " + String(viewModel.likes)
