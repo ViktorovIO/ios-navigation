@@ -192,27 +192,49 @@ class LogInViewController: UIViewController {
     @objc
     func onLogInButtonClick() {
         let profileViewController = ProfileViewController()
+        
         if self.loginTextField.text != "" && self.passwordTextField.text != "" {
+            #if DEBUG
+                let userService = TestUserService()
+            #else
+                let userService = CurrentUserService()
+            #endif
+
+            let user = userService.getUserByLogin(
+                login: loginTextField.text!,
+                password: passwordTextField.text!
+            )
+            
+            if user == nil {
+                self.showErrorAlert()
+                return
+            }
+            
+            profileViewController.user = user
             navigationController?.pushViewController(profileViewController, animated: true)
         } else {
-            let alertController = UIAlertController(
-                title: "Access denied!",
-                message: "Check your login/password field!",
-                preferredStyle: .alert
-            )
-
-            let actionOK = UIAlertAction(
-                title: "OK",
-                style: .default,
-                handler: {(action:UIAlertAction!) in
-                    print("OK button pressed")
-                }
-            )
-
-            alertController.addAction(actionOK)
-
-            self.present(alertController, animated: true, completion: nil)
+            self.showErrorAlert()
         }
+    }
+    
+    private func showErrorAlert() {
+        let alertController = UIAlertController(
+            title: "Access denied!",
+            message: "Check your login/password field!",
+            preferredStyle: .alert
+        )
+
+        let actionOK = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: {(action:UIAlertAction!) in
+                print("OK button pressed")
+            }
+        )
+
+        alertController.addAction(actionOK)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
     @objc

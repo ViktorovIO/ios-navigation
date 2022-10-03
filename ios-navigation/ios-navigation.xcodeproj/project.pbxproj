@@ -29,6 +29,13 @@
 		5CD4DAA828E44D9B00D1C864 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD4DAA228E44D9B00D1C864 /* StorageService.framework */; };
 		5CD4DAA928E44D9B00D1C864 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD4DAA228E44D9B00D1C864 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CD4DAAE28E44DD700D1C864 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1DA02847FA9900B71858 /* Post.swift */; };
+		5CEC40DD28E9AD36007A6938 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC40DC28E9AD36007A6938 /* User.swift */; };
+		5CEC40E028E9AF69007A6938 /* UserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC40DF28E9AF69007A6938 /* UserServiceProtocol.swift */; };
+		5CEC40E228E9AFB7007A6938 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC40E128E9AFB7007A6938 /* CurrentUserService.swift */; };
+		5CEC40E728E9B09A007A6938 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC40E628E9B09A007A6938 /* TestUserService.swift */; };
+		5CEC40E928E9B1F1007A6938 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC40E828E9B1F1007A6938 /* UserRepository.swift */; };
+		5CEC40EB28E9B3C2007A6938 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC40EA28E9B3C2007A6938 /* UserRepositoryProtocol.swift */; };
+		5CEC40ED28E9B42A007A6938 /* TestUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC40EC28E9B42A007A6938 /* TestUserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +86,13 @@
 		5CB2A0FA28BD1B9D00CE1618 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 		5CD4DAA228E44D9B00D1C864 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD4DAA428E44D9B00D1C864 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		5CEC40DC28E9AD36007A6938 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5CEC40DF28E9AF69007A6938 /* UserServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceProtocol.swift; sourceTree = "<group>"; };
+		5CEC40E128E9AFB7007A6938 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		5CEC40E628E9B09A007A6938 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
+		5CEC40E828E9B1F1007A6938 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		5CEC40EA28E9B3C2007A6938 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		5CEC40EC28E9B42A007A6938 /* TestUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,9 +163,9 @@
 		5C7D1DA42847FAD100B71858 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5CEC40DE28E9AD4B007A6938 /* Auth */,
 				5CA7CA8A28A2B7610013249C /* Photo */,
 				5C7D1DA52847FADB00B71858 /* ProfileViewController.swift */,
-				5C7D1DA9284802F300B71858 /* LogInViewController.swift */,
 				5C0CD3F028844245001040AA /* ProfileTableHederView.swift */,
 			);
 			path = Profile;
@@ -175,6 +189,37 @@
 				5CD4DAA428E44D9B00D1C864 /* StorageService.h */,
 			);
 			path = StorageService;
+			sourceTree = "<group>";
+		};
+		5CEC40DE28E9AD4B007A6938 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5CEC40EE28E9B434007A6938 /* Repository */,
+				5CEC40EF28E9B4D2007A6938 /* Service */,
+				5C7D1DA9284802F300B71858 /* LogInViewController.swift */,
+				5CEC40DC28E9AD36007A6938 /* User.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5CEC40EE28E9B434007A6938 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				5CEC40E828E9B1F1007A6938 /* UserRepository.swift */,
+				5CEC40EA28E9B3C2007A6938 /* UserRepositoryProtocol.swift */,
+				5CEC40EC28E9B42A007A6938 /* TestUserRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		5CEC40EF28E9B4D2007A6938 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5CEC40DF28E9AF69007A6938 /* UserServiceProtocol.swift */,
+				5CEC40E128E9AFB7007A6938 /* CurrentUserService.swift */,
+				5CEC40E628E9B09A007A6938 /* TestUserService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,19 +334,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEC40EB28E9B3C2007A6938 /* UserRepositoryProtocol.swift in Sources */,
 				5C7D1D8C2847F9A500B71858 /* ViewController.swift in Sources */,
 				5CB2A0F928BD1B3500CE1618 /* PhotosViewController.swift in Sources */,
 				5C0CD3F128844245001040AA /* ProfileTableHederView.swift in Sources */,
 				5C7D1D882847F9A500B71858 /* AppDelegate.swift in Sources */,
+				5CEC40E228E9AFB7007A6938 /* CurrentUserService.swift in Sources */,
+				5CEC40ED28E9B42A007A6938 /* TestUserRepository.swift in Sources */,
 				5C7D1DA32847FAB600B71858 /* PostViewController.swift in Sources */,
 				5C7D1D9C2847FA3D00B71858 /* FeedViewController.swift in Sources */,
 				5CB2A0FB28BD1B9D00CE1618 /* PhotosViewModel.swift in Sources */,
+				5CEC40DD28E9AD36007A6938 /* User.swift in Sources */,
 				5CA7CA8928A2B2760013249C /* MockedPostsList.swift in Sources */,
 				5C7D1D8A2847F9A500B71858 /* SceneDelegate.swift in Sources */,
 				5CA7CA8C28A2B7900013249C /* PhotosTableViewCell.swift in Sources */,
 				5C7D1DA62847FADB00B71858 /* ProfileViewController.swift in Sources */,
+				5CEC40E728E9B09A007A6938 /* TestUserService.swift in Sources */,
 				5C7D1DAA284802F300B71858 /* LogInViewController.swift in Sources */,
 				5CB2A0F728BD19CE00CE1618 /* PhotosCollectionViewCell.swift in Sources */,
+				5CEC40E028E9AF69007A6938 /* UserServiceProtocol.swift in Sources */,
+				5CEC40E928E9B1F1007A6938 /* UserRepository.swift in Sources */,
 				5CA7CA8728A2AF160013249C /* ViewModel.swift in Sources */,
 				5C7D1D9F2847FA7100B71858 /* InfoViewController.swift in Sources */,
 				5C0CD3F3288442FD001040AA /* PostTableViewCell.swift in Sources */,

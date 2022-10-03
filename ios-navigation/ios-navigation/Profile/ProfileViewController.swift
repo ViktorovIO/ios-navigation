@@ -9,10 +9,12 @@ import UIKit
 import StorageService
 
 class ProfileViewController: UIViewController {
+    
+    var user: User? = nil
 
     private var posts: [Post] = []
     
-    private lazy var profileHeaderView: UIView = {
+    private lazy var profileHeaderView: ProfileHeaderView = {
         let profileHeaderView = ProfileHeaderView(frame: .zero)
         profileHeaderView.backgroundColor = .white
         profileHeaderView.heightAnchor.constraint(equalToConstant: 300).isActive = true
@@ -137,7 +139,12 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.profileHeaderView
+        let headerCell = self.profileHeaderView
+        if let user = user {
+            headerCell.setUser(avatarImage: user.avatar, fullName: user.fullName, status: user.status)
+        }
+        
+        return headerCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

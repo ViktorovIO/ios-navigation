@@ -10,7 +10,7 @@ import UIKit
 class ProfileHeaderView: UIView {
     
     var avatarImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "avatar"))
+        let imageView = UIImageView()
         imageView.layer.cornerRadius = 75
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 3
@@ -23,7 +23,6 @@ class ProfileHeaderView: UIView {
 
     private lazy var fullNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Igor Viktorov"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -32,7 +31,6 @@ class ProfileHeaderView: UIView {
 
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
-        label.text = "Profile status"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .black
         label.numberOfLines = 1
@@ -84,6 +82,12 @@ class ProfileHeaderView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUser(avatarImage: UIImage, fullName: String, status: String) {
+        avatarImageView.image = avatarImage
+        fullNameLabel.text = fullName
+        statusLabel.text = status
     }
 
     private func drawSelf() {
