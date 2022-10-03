@@ -17,10 +17,6 @@ class UserRepository: UserRepositoryProtocol {
     )
     
     func getUserByLogin(login: String) -> User? {
-        if login == user.login {
-            return user
-        }
-        
-        return nil
+        return login == user.login ? user : nil
     }
 }
