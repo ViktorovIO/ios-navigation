@@ -8,15 +8,13 @@
 class Checker {
     static let shared = Checker()
     
-    var user: User?
-    
-    private var login: String?
-    private var password: String?
+    private var login: String = "test"
+    private var password: String = "test"
     
     private init() {}
     
     func check(login: String, password: String) -> Bool {
-        return login == user!.login && password == user!.password
+        return login == self.login && password == self.password
     }
     
 }

@@ -211,8 +211,6 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            self.loginDelegate!.setUser(user: user!)
-            
             if self.loginDelegate!.check(login: loginText!, password: passwordText!) == false {
                 self.showErrorAlert()
                 return
