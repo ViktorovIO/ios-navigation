@@ -13,16 +13,7 @@ class CurrentUserService: UserServiceProtocol {
         self.userRepository = UserRepository()
     }
     
-    func getUserByLogin(login: String, password: String) -> User? {
-        let currentUser = self.userRepository.getUserByLogin(login: login)
-        if currentUser == nil {
-            return nil
-        }
-        
-        if password == currentUser!.password {
-            return currentUser
-        }
-        
-        return nil
+    func getUserByLogin(login: String) -> User? {
+        return self.userRepository.getUserByLogin(login: login)
     }
 }

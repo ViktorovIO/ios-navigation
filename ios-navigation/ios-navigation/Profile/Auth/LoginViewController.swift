@@ -7,7 +7,9 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LoginViewController: UIViewController {
+    
+    public var loginDelegate: LoginViewControllerDelegateProtocol?
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -89,7 +91,7 @@ class LogInViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(self.onLogInButtonClick), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.onLoginButtonClick), for: .touchUpInside)
         
         return button
     }()
@@ -190,22 +192,28 @@ class LogInViewController: UIViewController {
     }
 
     @objc
-    func onLogInButtonClick() {
+    private func onLoginButtonClick() {
         let profileViewController = ProfileViewController()
+        let loginText = self.loginTextField.text
+        let passwordText = self.passwordTextField.text
         
-        if self.loginTextField.text != "" && self.passwordTextField.text != "" {
+        if loginText != "" && passwordText != "" {
             #if DEBUG
                 let userService = TestUserService()
             #else
                 let userService = CurrentUserService()
             #endif
 
-            let user = userService.getUserByLogin(
-                login: loginTextField.text!,
-                password: passwordTextField.text!
-            )
+            let user = userService.getUserByLogin(login: loginText!)
             
-            if user == nil {
+            if user == nil || self.loginDelegate == nil {
+                self.showErrorAlert()
+                return
+            }
+            
+            self.loginDelegate!.setUser(user: user!)
+            
+            if self.loginDelegate!.check(login: loginText!, password: passwordText!) == false {
                 self.showErrorAlert()
                 return
             }
@@ -266,7 +274,7 @@ class LogInViewController: UIViewController {
     }
 }
 
-extension LogInViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func addTapGestureToHideKeyboard() {
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
         view.addGestureRecognizer(tapGesture)
