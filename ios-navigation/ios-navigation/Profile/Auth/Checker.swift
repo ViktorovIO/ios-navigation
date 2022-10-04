@@ -5,8 +5,6 @@
 //  Created by Игорь Викторов on 04.10.2022.
 //
 
-import UIKit
-
 class Checker {
     static let shared = Checker()
     
