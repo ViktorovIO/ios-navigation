@@ -7,6 +7,6 @@
 
 protocol UserServiceProtocol {
     
-    func getUserByLogin(login: String, password: String) -> User?
+    func getUserByLogin(login: String) -> User?
     
 }
