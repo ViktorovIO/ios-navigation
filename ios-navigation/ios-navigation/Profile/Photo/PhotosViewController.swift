@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
+    
+    private let imagePublisherFacade = ImagePublisherFacade()
+    private var recievedImages: [UIImage] = []
+    
     private enum Constants {
         static let itemCount: CGFloat = 3
     }
@@ -48,7 +53,19 @@ class PhotosViewController: UIViewController {
         self.title = "Photo Gallery"
         self.navigationItem.backButtonTitle = "Назад"
         self.navigationController?.navigationBar.isHidden = false
-
+        
+        var imageList: [UIImage] = []
+        self.imagePublisherFacade.subscribe(self)
+        
+        collectionDataSource.forEach { photosViewModel in
+            imageList.append(UIImage(named: photosViewModel.image)!)
+        }
+        
+        self.imagePublisherFacade.addImagesWithTimer(time: 0.5, repeat: 15, userImages: imageList)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.imagePublisherFacade.removeSubscription(for: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +92,7 @@ class PhotosViewController: UIViewController {
 
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.collectionDataSource.count
+        return self.recievedImages.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -84,9 +101,10 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
             cell.backgroundColor = .black
             return cell
         }
+        
         cell.backgroundColor = .systemGray6
-        let photos = collectionDataSource[indexPath.row]
-        cell.photoImagesToGallery.image = UIImage(named: photos.image)
+        let photos = self.recievedImages[indexPath.row]
+        cell.photoImagesToGallery.image = photos
         cell.photoImagesToGallery.contentMode = .scaleAspectFill
         return cell
     }
@@ -98,5 +116,12 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
         let spacing = ( collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing
         return self.itemSize(for: collectionView.frame.width, with: spacing ?? 0)
+    }
+}
+
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        self.recievedImages = images
+        collectionView.reloadData()
     }
 }

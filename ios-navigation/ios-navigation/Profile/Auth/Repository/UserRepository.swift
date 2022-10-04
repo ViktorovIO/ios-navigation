@@ -9,8 +9,8 @@ import UIKit
 
 class UserRepository: UserRepositoryProtocol {
     private let user = User(
-        login: "Igorilla",
-        password: "password",
+        login: "test",
+        password: "test",
         fullName: "Игорь Викторов",
         avatar: UIImage(named: "avatar")!,
         status: "Shocked"
