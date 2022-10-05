@@ -7,5 +7,4 @@
 
 protocol LoginViewControllerDelegateProtocol {
     func check(login: String, password: String) -> Bool
-    func setUser(user: User) -> Void
 }

@@ -9,8 +9,4 @@ struct LoginInspector: LoginViewControllerDelegateProtocol {
     func check(login: String, password: String) -> Bool {
        return Checker.shared.check(login: login, password: password)
     }
-    
-    func setUser(user: User) -> Void {
-        Checker.shared.user = user
-    }
 }
