@@ -27,15 +27,14 @@ class InfoViewController: UIViewController {
         title = self.post.author
         self.view.backgroundColor = .gray
         
-        let postButton = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
-        postButton.setTitle("Текст", for: .normal)
-        postButton.backgroundColor = .brown
-        postButton.addTarget(self, action: #selector(showPostMessageAlert), for: .touchUpInside)
+        let postButton = CustomButton(customTitle: "Текст", backgroundColor: .brown, frame: nil)
+        postButton.setTapClosure { self.showPostMessageAlert() }
         
         view.addSubview(postButton)
     }
     
-    @objc func showPostMessageAlert() {
+    @objc
+    private func showPostMessageAlert() {
         let alertVC = UIAlertController(title: self.post.author, message: self.post.description, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
@@ -50,16 +49,4 @@ class InfoViewController: UIViewController {
         
         self.present(alertVC, animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

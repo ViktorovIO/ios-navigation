@@ -9,6 +9,42 @@ import UIKit
 import StorageService
 
 class FeedViewController: UIViewController {
+    
+    private var checkGuessTextField: UITextField = {
+        let textField = UITextField()
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 1
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftViewMode = .always
+        textField.returnKeyType = .done
+        textField.autocapitalizationType = .words
+        textField.frame = CGRect(x: 100, y: 200, width: 200, height: 50)
+        
+        return textField
+    }()
+
+    private var checkGuessLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Wait, please"
+        label.textAlignment = .center
+        label.frame = CGRect(x: 100, y: 400, width: 200, height: 50)
+        
+        return label
+    }()
+
+    private lazy var checkGuessButton: UIButton = {
+        let button = CustomButton(
+            customTitle: "Check guess",
+            backgroundColor: .systemBlue,
+            frame: CGRect(x: 100, y: 300, width: 200, height: 50)
+        )
+        
+        button.setTapClosure {
+            self.setCheckGuessButtonPressed()
+        }
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +54,25 @@ class FeedViewController: UIViewController {
         self.addPostButtonSubview()
     }
     
+    private func addPostButtonSubview() {
+        let postButton = CustomButton(
+            customTitle: "Читать",
+            backgroundColor: .systemBlue,
+            frame: CGRect(x: 100, y: 100, width: 200, height: 50)
+        )
+        
+        postButton.setTapClosure {
+            self.showPost()
+        }
+        
+        view.addSubview(postButton)
+        view.addSubview(checkGuessLabel)
+        view.addSubview(checkGuessTextField)
+        view.addSubview(checkGuessButton)
+    }
+    
     @objc
-    func showPost() {
+    private func showPost() {
         let post = Post(
             author: "Igorilla",
             description: "Hello, world!",
@@ -27,17 +80,26 @@ class FeedViewController: UIViewController {
             likes: 100500,
             views: 1001
         )
+        
         let postVC = PostViewController(post: post, nibName: nil, bundle: nil)
         
         navigationController?.pushViewController(postVC, animated: true)
     }
     
-    private func addPostButtonSubview() {
-        let postButton = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
-        postButton.setTitle("Читать", for: .normal)
-        postButton.backgroundColor = .systemBlue
-        postButton.addTarget(self, action: #selector(showPost), for: .touchUpInside)
-        
-        view.addSubview(postButton)
+    @objc
+    private func setCheckGuessButtonPressed() {
+        let checkedSecret = self.checkGuessTextField.text ?? nil
+
+        if checkedSecret != nil {
+            if FeedModel().check(word: checkedSecret!) {
+                self.checkGuessLabel.text = "Right password"
+                self.checkGuessLabel.textColor = .green
+            } else {
+                self.checkGuessLabel.textColor = .red
+                self.checkGuessLabel.text = "Wrong password"
+            }
+        } else {
+            print("Empty String")
+        }
     }
 }

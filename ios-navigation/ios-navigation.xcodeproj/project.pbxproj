@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0AB02B28F2E88700933EDE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0AB02A28F2E88700933EDE /* CustomButton.swift */; };
+		5C0AB02D28F2F42900933EDE /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0AB02C28F2F42900933EDE /* FeedModel.swift */; };
 		5C0CD3F128844245001040AA /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0CD3F028844245001040AA /* ProfileTableHederView.swift */; };
 		5C0CD3F3288442FD001040AA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0CD3F2288442FD001040AA /* PostTableViewCell.swift */; };
 		5C17457228EC24CE00FAE575 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17457128EC24CE00FAE575 /* Checker.swift */; };
@@ -69,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C0AB02A28F2E88700933EDE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		5C0AB02C28F2F42900933EDE /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		5C0CD3F028844245001040AA /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
 		5C0CD3F2288442FD001040AA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		5C17457128EC24CE00FAE575 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				5C7D1D922847F9A600B71858 /* LaunchScreen.storyboard */,
 				5C7D1D952847F9A600B71858 /* Info.plist */,
 				5C7D1D9B2847FA3D00B71858 /* FeedViewController.swift */,
+				5C0AB02A28F2E88700933EDE /* CustomButton.swift */,
+				5C0AB02C28F2F42900933EDE /* FeedModel.swift */,
 			);
 			path = "ios-navigation";
 			sourceTree = "<group>";
@@ -369,8 +375,10 @@
 				5CEC40EB28E9B3C2007A6938 /* UserRepositoryProtocol.swift in Sources */,
 				5C7D1D8C2847F9A500B71858 /* ViewController.swift in Sources */,
 				5CB2A0F928BD1B3500CE1618 /* PhotosViewController.swift in Sources */,
+				5C0AB02B28F2E88700933EDE /* CustomButton.swift in Sources */,
 				5C0CD3F128844245001040AA /* ProfileTableHederView.swift in Sources */,
 				5C7D1D882847F9A500B71858 /* AppDelegate.swift in Sources */,
+				5C0AB02D28F2F42900933EDE /* FeedModel.swift in Sources */,
 				5CEC40E228E9AFB7007A6938 /* CurrentUserService.swift in Sources */,
 				5CEC40ED28E9B42A007A6938 /* TestUserRepository.swift in Sources */,
 				5C7D1DA32847FAB600B71858 /* PostViewController.swift in Sources */,
