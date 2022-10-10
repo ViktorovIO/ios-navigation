@@ -41,13 +41,16 @@ class ProfileHeaderView: UIView {
     }()
 
     private lazy var setStatusButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Установить статус", for: .normal)
+        let button = CustomButton(customTitle: "Установить статус", backgroundColor: .systemBlue, frame: nil)
+        
+        button.setTapClosure {
+            self.setStatusButtonPressed()
+        }
+        
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(self.setStatusButtonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.systemBlue
+
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.7
@@ -130,7 +133,8 @@ class ProfileHeaderView: UIView {
         ])
     }
     
-    @objc private func setStatusButtonPressed() {
+    @objc
+    private func setStatusButtonPressed() {
         statusLabel.text = statusTextField.text
         statusTextField.text = ""
         print(statusLabel)

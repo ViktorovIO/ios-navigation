@@ -132,17 +132,15 @@ class PostTableViewCell: UITableViewCell {
     }
 
     private func activateConstraints() {
-        let backViewTop = backView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16)
-        let backViewLead = backView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
-        let backViewTrail = backView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-        let backViewBottom = backView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-        let stackViewPostTop = stackViewPost.topAnchor.constraint(equalTo: backView.topAnchor, constant: 16)
-        let stackViewPostLead = stackViewPost.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 16)
-        let stackViewPostTrail = stackViewPost.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -16)
-        let stackViewPostBottom = stackViewPost.bottomAnchor.constraint(equalTo: backView.bottomAnchor)
-
         NSLayoutConstraint.activate([
-            backViewTop, backViewLead, backViewTrail, backViewBottom , stackViewPostTop, stackViewPostLead, stackViewPostTrail, stackViewPostBottom
+            backView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            backView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            backView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            backView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            stackViewPost.topAnchor.constraint(equalTo: backView.topAnchor, constant: 16),
+            stackViewPost.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 16),
+            stackViewPost.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -16),
+            stackViewPost.bottomAnchor.constraint(equalTo: backView.bottomAnchor)
         ])
     }
 }
