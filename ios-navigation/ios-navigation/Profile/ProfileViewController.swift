@@ -10,6 +10,19 @@ import StorageService
 
 class ProfileViewController: UIViewController {
     
+    let profileViewModel: ProfileViewModel
+    let photoCoordinator: PhotoCoordinator
+    
+    init(profileViewModel: ProfileViewModel, photoCoordinator: PhotoCoordinator) {
+        self.profileViewModel = profileViewModel
+        self.photoCoordinator = photoCoordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var user: User? = nil
 
     private var posts: [Post] = []
@@ -139,12 +152,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = self.profileHeaderView
-        if let user = user {
-            headerCell.setUser(avatarImage: user.avatar, fullName: user.fullName, status: user.status)
-        }
-        
-        return headerCell
+        return self.profileViewModel.profileHeaderView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

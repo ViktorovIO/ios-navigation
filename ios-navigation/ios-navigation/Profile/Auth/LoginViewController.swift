@@ -10,6 +10,18 @@ import UIKit
 class LoginViewController: UIViewController {
     
     public var loginDelegate: LoginViewControllerDelegateProtocol?
+    
+    let coordinator: ProfileCoordinator
+    
+    init(coordinator: ProfileCoordinator) {
+        self.coordinator = coordinator
+        self.loginDelegate = LoginInspector()
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -193,10 +205,9 @@ class LoginViewController: UIViewController {
 
     @objc
     private func onLoginButtonClick() {
-        let profileViewController = ProfileViewController()
         let loginText = self.loginTextField.text
         let passwordText = self.passwordTextField.text
-        
+
         if loginText != "" && passwordText != "" {
             #if DEBUG
                 let userService = TestUserService()
@@ -216,8 +227,8 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            profileViewController.user = user
-            navigationController?.pushViewController(profileViewController, animated: true)
+            self.coordinator.setUser(user: user!)
+            self.coordinator.start()
         } else {
             self.showErrorAlert()
         }

@@ -5,7 +5,7 @@
 //  Created by Игорь Викторов on 04.10.2022.
 //
 
-struct MyLoginFactory: LoginFactoryProtocol {
+struct LoginFactory: LoginFactoryProtocol {
     
     func makeLoginInspector() -> LoginInspector {
         return LoginInspector()
