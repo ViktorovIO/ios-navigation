@@ -67,9 +67,18 @@ class PhotosViewController: UIViewController {
             sourceImages: imageList,
             filter: .fade,
             qos: .utility
-        ) {_ in
+        ) { cgImage in
             let diff = CFAbsoluteTimeGetCurrent() - start
             print("Time is \(diff) seconds")
+            
+            cgImage.forEach {
+                guard let image = $0 else {return }
+                self.recievedImages.append(UIImage(cgImage: image))
+            }
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
 
 //        Result:
