@@ -10,6 +10,17 @@ import StorageService
 
 class FeedViewController: UIViewController {
     
+    let coordinator: FeedCoordinator
+    
+    init(coordinator: FeedCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private var checkGuessTextField: UITextField = {
         let textField = UITextField()
         textField.layer.borderColor = UIColor.black.cgColor
@@ -81,9 +92,7 @@ class FeedViewController: UIViewController {
             views: 1001
         )
         
-        let postVC = PostViewController(post: post, nibName: nil, bundle: nil)
-        
-        navigationController?.pushViewController(postVC, animated: true)
+        coordinator.toPostViewController(send: post)
     }
     
     @objc
