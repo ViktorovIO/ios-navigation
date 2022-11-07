@@ -10,6 +10,7 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
+    let imageProcessor = ImageProcessor()
     private let imagePublisherFacade = ImagePublisherFacade()
     private var recievedImages: [UIImage] = []
     
@@ -61,12 +62,38 @@ class PhotosViewController: UIViewController {
             imageList.append(UIImage(named: photosViewModel.image)!)
         }
         
-        self.imagePublisherFacade.addImagesWithTimer(time: 0.5, repeat: 15, userImages: imageList)
+        let start = CFAbsoluteTimeGetCurrent()
+        imageProcessor.processImagesOnThread(
+            sourceImages: imageList,
+            filter: .fade,
+            qos: .utility
+        ) { cgImage in
+            let diff = CFAbsoluteTimeGetCurrent() - start
+            print("Time is \(diff) seconds")
+            
+            cgImage.forEach {
+                guard let image = $0 else {return }
+                self.recievedImages.append(UIImage(cgImage: image))
+            }
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+
+//        Result:
+//        .background = 3.5s
+//        .default = 1.2s
+//        .userInitiated = 1.4s
+//        .userInteractive = 1.6s
+//        .utility = 1.5s
+        
+//        self.imagePublisherFacade.addImagesWithTimer(time: 0.5, repeat: 15, userImages: imageList)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        self.imagePublisherFacade.removeSubscription(for: self)
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        self.imagePublisherFacade.removeSubscription(for: self)
+//    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
