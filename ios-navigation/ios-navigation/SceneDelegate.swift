@@ -13,6 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var coordinator: TabBarCoordinatorProtocol?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        appConfiguration = AppConfiguration.allCases.randomElement()
+
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let tabBarController = UITabBarController()

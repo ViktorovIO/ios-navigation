@@ -80,6 +80,8 @@ class FeedViewController: UIViewController {
         view.addSubview(checkGuessLabel)
         view.addSubview(checkGuessTextField)
         view.addSubview(checkGuessButton)
+        
+        NetworkService.request(for: appConfiguration!)
     }
     
     @objc
