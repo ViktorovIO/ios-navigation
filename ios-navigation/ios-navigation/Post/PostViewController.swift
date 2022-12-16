@@ -9,12 +9,16 @@ import UIKit
 import StorageService
 
 class PostViewController: UIViewController {
+    
+    let coordinator: FeedCoordinator
+    
     var post: Post
     
-    init(post: Post, nibName: String?, bundle: Bundle?) {
+    init(coordinator: FeedCoordinator, post: Post) {
+        self.coordinator = coordinator
         self.post = post
         
-        super.init(nibName: nibName, bundle: bundle)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -34,7 +38,7 @@ class PostViewController: UIViewController {
     @objc
     func showPostInfo() {
         print("test1")
-        let infoVC = InfoViewController(post: self.post, nibName: nil, bundle: nil)
+        let infoVC = InfoViewController(coordinator: self.coordinator, post: self.post)
         infoVC.modalPresentationStyle = .formSheet
         infoVC.modalTransitionStyle = .coverVertical
         

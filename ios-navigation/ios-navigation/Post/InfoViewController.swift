@@ -9,12 +9,17 @@ import UIKit
 import StorageService
 
 class InfoViewController: UIViewController {
+    
+    let coordinator: FeedCoordinator
+    
     var post: Post
     
-    init(post: Post, nibName: String?, bundle: Bundle?) {
+    private lazy var peopleArray: [String] = []
+    
+    init(coordinator: FeedCoordinator, post: Post) {
+        self.coordinator = coordinator
         self.post = post
-        
-        super.init(nibName: nibName, bundle: bundle)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -31,6 +36,35 @@ class InfoViewController: UIViewController {
         postButton.setTapClosure { self.showPostMessageAlert() }
         
         view.addSubview(postButton)
+        
+        setupSubviews()
+
+        getTODOItem { todoItemTitle in
+            guard let todoItemTitle else { return }
+            DispatchQueue.main.async {
+                self.task1Label.text = todoItemTitle
+            }
+        }
+
+        getPlanetDayLength { planetItem in
+            guard let planetItem else { return }
+            DispatchQueue.main.async {
+                self.task2Label.text = planetItem.dayLength
+            }
+        }
+
+        getPlanetDayLength { planetItem in
+            guard let planetItem else { return }
+
+            planetItem.residents.forEach { url in
+                getPlanetResidentName(peopleURL: url) { peopleName in
+                    self.peopleArray.append(peopleName!.name)
+                    DispatchQueue.main.async {
+                        self.peopleTable.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     @objc
@@ -48,5 +82,70 @@ class InfoViewController: UIViewController {
         alertVC.addAction(helloWorldAcrion)
         
         self.present(alertVC, animated: true, completion: nil)
+    }
+
+    private lazy var task1Label: UILabel = {
+        let label = UILabel()
+        label.text = "Task 1"
+        label.textAlignment = .center
+        label.numberOfLines = 0
+
+        return label
+    }()
+
+    private lazy var task2Label: UILabel = {
+        let label = UILabel()
+        label.text = "Task 2"
+        label.textAlignment = .center
+        label.numberOfLines = 0
+
+        return label
+    }()
+
+    private lazy var peopleTable: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        return tableView
+    }()
+
+    private func setupSubviews() {
+        view.backgroundColor = .systemBackground
+        title = "InfoViewController"
+
+        view.addSubview(task1Label)
+        view.addSubview(task2Label)
+        view.addSubview(peopleTable)
+
+        NSLayoutConstraint.activate([
+            task1Label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            task1Label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
+            task1Label.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -50),
+
+            task2Label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            task2Label.topAnchor.constraint(equalTo: task1Label.bottomAnchor, constant: 25),
+            task2Label.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -50),
+
+            peopleTable.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -50),
+            peopleTable.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            peopleTable.topAnchor.constraint(equalTo: task2Label.bottomAnchor, constant: 10),
+            peopleTable.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+        ])
+    }
+}
+
+extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return peopleArray.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        content.text = peopleArray[indexPath.row]
+        cell.contentConfiguration = content
+        return cell
     }
 }
