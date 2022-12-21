@@ -24,9 +24,14 @@ class FeedCoordinator: CoordinatorProtocol {
     }
     
     func toPostViewController(send post: Post) {
-        let postVC = PostViewController(post: post, nibName: nil, bundle: nil)
-        postVC.post = post
+        let postVC = PostViewController(coordinator: self, post: post)
         
         navigationController.pushViewController(postVC, animated: true)
+    }
+    
+    func toInfoViewController(send post: Post) {
+        let infoVC = InfoViewController(coordinator: self, post: post)
+        
+        navigationController.pushViewController(infoVC, animated: true)
     }
 }

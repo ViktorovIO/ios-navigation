@@ -21,6 +21,14 @@ class FeedViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private lazy var post = Post(
+        author: "Igorilla",
+        description: "Hello, world!",
+        image: "avatar",
+        likes: 100500,
+        views: 1001
+    )
+    
     private var checkGuessTextField: UITextField = {
         let textField = UITextField()
         textField.layer.borderColor = UIColor.black.cgColor
@@ -56,6 +64,20 @@ class FeedViewController: UIViewController {
         
         return button
     }()
+    
+    private lazy var infoButton: CustomButton = {
+        let button = CustomButton(
+            customTitle: "Info",
+            backgroundColor: .systemCyan,
+            frame: CGRect(x: 100, y: 400, width: 200, height: 50)
+        )
+        
+        button.setTapClosure {
+            self.tabInfoButton()
+        }
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,21 +102,18 @@ class FeedViewController: UIViewController {
         view.addSubview(checkGuessLabel)
         view.addSubview(checkGuessTextField)
         view.addSubview(checkGuessButton)
+        view.addSubview(infoButton)
         
         NetworkService.request(for: appConfiguration!)
     }
     
+    private func tabInfoButton() {
+        coordinator.toInfoViewController(send: self.post)
+    }
+    
     @objc
     private func showPost() {
-        let post = Post(
-            author: "Igorilla",
-            description: "Hello, world!",
-            image: "avatar",
-            likes: 100500,
-            views: 1001
-        )
-        
-        coordinator.toPostViewController(send: post)
+        coordinator.toPostViewController(send: self.post)
     }
     
     @objc
